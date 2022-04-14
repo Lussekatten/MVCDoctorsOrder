@@ -1,0 +1,9 @@
+﻿@model MVCEmpty.Models.GuessNumber
+<h1>Guessing the hidden number (session training)</h1>
+
+<form asp-controller="Guess" asp-action="CheckNumber" method="post" role="form">
+    <button type="submit">Guess the hidden number (1-99)</button>
+    <input asp-for="userGuess" type="text" name="userGuess" value="@Model.userGuess" />
+</form>
+
+<h2>@Model.Message</h2>
