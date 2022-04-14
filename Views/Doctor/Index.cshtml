@@ -1,0 +1,9 @@
+﻿@model MVCEmpty.Models.Temperature
+<h1>At the doctor</h1>
+
+<form asp-controller="Doctor" asp-action="CheckTemp" method="post" role="form">
+    <button type="submit">Check your temperature</button>
+    <input asp-for="TempInCelsius" type="text" name="TempInCelsius" value="@Model.TempInCelsius" />
+</form>
+
+<h2>@Model.Message</h2>

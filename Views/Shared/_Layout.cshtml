@@ -1,0 +1,48 @@
+﻿
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Template Main CSS File -->
+
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/css/bootstrap.css">
+<link href="~/content/site.css" rel="stylesheet">
+
+<title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container mt-2">
+        <img src="~/images/logo.png" class="logo" alt="företagets logotyp">
+        <ul class="nav">
+            <li class="nav-item">
+                <a asp-controller="My" asp-action="Home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="My" asp-action="About">About</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="My" asp-action="Projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="My" asp-action="Contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Doctor" asp-action="Index">Doctor</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            @ViewBag.Date &nbsp;&nbsp;
+            Lucian Ralea
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

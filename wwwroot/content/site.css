@@ -1,0 +1,13 @@
+﻿/* Put here your own css code */
+
+.nav-item {
+    padding: 10px;
+    margin: 0px;
+    border: 1px;
+    border-style: outset;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+}
