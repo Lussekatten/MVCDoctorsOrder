@@ -18,14 +18,18 @@ namespace MVCEmpty
         public void ConfigureServices(IServiceCollection services)
         {
             //register services to be used
-            services.AddControllersWithViews();
 
             services.AddScoped<ITemperature, Temperature>();
 
             //services.AddScoped<GuessNumber>(sp=>GuessNumber.GetGame(sp));
             services.AddScoped<GuessNumber>();
-            services.AddHttpContextAccessor();
+            //services.AddHttpContextAccessor();
+
+            //For session handling use the 2 services below
+            services.AddDistributedMemoryCache();
             services.AddSession();
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,9 +49,11 @@ namespace MVCEmpty
 
             //Place UseSession() after UseRouting() if .NET Core 6.0
             //See https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-6.0
-            app.UseSession();
 
             app.UseRouting();
+
+            //The order of middleware is important. Call UseSession after UseRouting and before UseEndpoints.
+            app.UseSession();
 
             // endpoint mapping
             app.UseEndpoints(endpoints => {

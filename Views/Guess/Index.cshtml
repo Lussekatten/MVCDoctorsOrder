@@ -4,6 +4,8 @@
 <form asp-controller="Guess" asp-action="CheckNumber" method="post" role="form">
     <button type="submit">Guess the hidden number (1-99)</button>
     <input asp-for="userGuess" type="text" name="userGuess" value="@Model.userGuess" />
+    <input asp-for="NoOfGuesses" type="hidden" name="NoOfGuesses" value="@Model.NoOfGuesses" />
 </form>
 
 <h2>@Model.Message</h2>
+<h3>You guessed @Model.NoOfGuesses times.</h3>
